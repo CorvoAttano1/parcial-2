@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/CSS" href="/css/login_register.css" >
+    <link rel="shortcut icon" href="/img/logotipo.PNG">
+    <title>REGISTRO </title>
+</head>
+<body>
+    <div class="container-form register">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido</h2>
+                <p>Para unirte a nuestra comunidad por favor inicia sesión con tus datos</p>
+                <a th:href="@{/login}"><input type="button" value="Iniciar Sesión" id="sign-in"></a>
+                <a th:href="@{/principal}"><input type="button" value="Inicio"></a>
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+               
+               
+                <div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha registrado exitosamente a
+						la aplicación</div>
+				</div>
+               
+               
+               
+                <h2>Crear una cuenta</h2>
+                <form th:action="@{/registro}" class="form" method="post" th:object="${usuario}">
+                    <label>
+                        <i class='bx bx-user-circle'></i>
+                        <input type="text" placeholder="Nombre" id="nombre" name="nombre" th:field="*{nombre}"
+                        required autofocus="autofocus">
+                    </label>
+                    <label>
+                        <i class='bx bx-user-circle'></i>
+                        <input type="text" placeholder="Apellido" id="apellido" name="Apellido" th:field="*{apellido}"
+                        required autofocus="autofocus">
+                    </label>
+                    <label>
+                        <i class='bx bx-envelope' ></i>
+                        <input type="email" placeholder="Correo electrónico" id="email" name="correo" th:field="*{email}"
+                        required autofocus="autofocus">
+                    </label>
+                    <label>
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" placeholder="Contraseña" id="password" name="contraseña" th:field="*{password}"
+                        required autofocus="autofocus" >
+                    </label>
+                    <input type="submit" value="Registrar">
+                </form>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
+
+
+
+
+
+
+
+
